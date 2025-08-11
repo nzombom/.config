@@ -1,0 +1,38 @@
+urxvt.scrollBar: false
+urxvt.cursorBlink: true
+urxvt.pointerBlank: true
+
+urxvt.font: xft:JetBrains Mono:size=9
+urxvt.italicFont: xft:JetBrains Mono:style=Italic:size=9
+urxvt.boldFont: xft:JetBrains Mono:style=Bold Italic:size=9
+
+urxvt.depth: 32
+
+urxvt.background: [75]#202020
+urxvt.foreground: #ffffff
+urxvt.cursorColor: [75]#606060
+urxvt.cursorColor2: #ffffff
+
+urxvt.color0: [75]#303030
+urxvt.color8: [75]#505050
+
+urxvt.color1: #d05050
+urxvt.color9: #ff7070
+
+urxvt.color2: #40b040
+urxvt.color10: #60ff60
+
+urxvt.color3: #b0b040
+urxvt.color11: #ffff60
+
+urxvt.color4: #5060c0
+urxvt.color12: #7080ff
+
+urxvt.color5: #c040b0
+urxvt.color13: #ff60ff
+
+urxvt.color6: #30a0a0
+urxvt.color14: #40d0d0
+
+urxvt.color7: #ffffff
+urxvt.color15: #ffffff

@@ -1,0 +1,44 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+        "height": 412,
+        "width": 644,
+        "x": 0,
+        "y": 0
+    },
+    "marks": [],
+    "name": "htop",
+    "percent": 0.668421052631579,
+    "swallows": [
+        {
+            "class": "^URxvt$",
+            "title": "^htop$"
+        }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+        "height": 412,
+        "width": 644,
+        "x": 0,
+        "y": 0
+    },
+    "marks": [],
+    "name": "wiremix",
+    "percent": 0.331578947368421,
+    "swallows": [
+        {
+            "class": "^URxvt$",
+            "title": "^wiremix$"
+        }
+    ],
+    "type": "con"
+}
+

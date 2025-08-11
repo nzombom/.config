@@ -1,0 +1,193 @@
+### basic control ###
+bindsym Mod1+Shift+c reload
+bindsym Mod1+Shift+r restart
+bindsym Mod1+Shift+e exec "i3-nagbar -f 'xft:JetBrains Mono ExtraBold 10.5' -t warning -m 'exit i3?' -B 'Y' 'i3-msg exit'"
+
+# screenshot
+bindsym Mod1+semicolon exec --no-startup-id "ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 -y /home/zombo/stuff/images/screen.png; xclip -selection clipboard -t image/png -i /home/zombo/screen.png"
+bindsym Mod1+Shift+semicolon exec --no-startup-id "ffmpeg -f x11grab -select_region 1 -i $DISPLAY -vframes 1 -y /home/zombo/stuff/images/screen.png; xclip -selection clipboard -t image/png -i /home/zombo/screen.png"
+bindsym Mod1+Ctrl+semicolon exec --no-startup-id "rm /home/zombo/stuff/images/screen.mp4; urxvt -e ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i $DISPLAY -f alsa -i default -c:v libx264 -c:a aac /home/zombo/stuff/images/screen.mp4"
+bindsym Mod1+Ctrl+Shift+semicolon exec --no-startup-id "rm /home/zombo/stuff/images/screen.mp4; urxvt -e ffmpeg -f x11grab -select_region 1 -framerate 30 -i $DISPLAY -f alsa -i default -c:v libx264 -c:a aac /home/zombo/stuff/images/screen.mp4"
+for_window [title="^ffmpeg$"] floating enable
+
+# lock
+bindsym Mod1+n exec --no-startup-id i3lock -f -i /home/zombo/wallpapers/lock/sky.png
+
+# volume keybinds
+bindsym Mod1+F1 exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym Mod1+F2 exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym Mod1+F3 exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym Mod1+F4 exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 100%
+
+# player keybinds
+bindsym Mod1+u exec --no-startup-id playerctl previous
+bindsym Mod1+i exec --no-startup-id playerctl play-pause
+bindsym Mod1+o exec --no-startup-id playerctl next
+
+# brightness keybinds
+bindsym Mod1+F9 exec --no-startup-id xrandr --output HDMI-A-0 --brightness 0.625
+bindsym Mod1+F10 exec --no-startup-id xrandr --output HDMI-A-0 --brightness 0.75
+bindsym Mod1+F11 exec --no-startup-id xrandr --output HDMI-A-0 --brightness 0.875
+bindsym Mod1+F12 exec --no-startup-id xrandr --output HDMI-A-0 --brightness 1.0
+
+# start terminal
+bindsym Mod1+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym Mod1+Shift+q kill
+
+# dmenu
+bindsym Mod1+d exec --no-startup-id $(dmenu -i -fn 'JetBrains Mono:size=24' -nb '#202020' -nf '#c0c0c0' -sb '#d05050' -sf '#ffffff' < /dev/null)
+bindsym Mod1+Shift+d exec --no-startup-id dmenu_run -i -l 4 -fn 'JetBrains Mono:size=24' -nb '#202020' -nf '#909090' -sb '#d05050' -sf '#ffffff'
+
+# change focus
+bindsym Mod1+Left focus left
+bindsym Mod1+h focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+j focus down
+bindsym Mod1+Up focus up
+bindsym Mod1+k focus up
+bindsym Mod1+Right focus right
+bindsym Mod1+l focus right
+bindsym Mod1+a focus parent
+bindsym Mod1+z focus child
+focus_wrapping force
+
+# move window
+bindsym Mod1+Shift+Left move left
+bindsym Mod1+Shift+h move left
+bindsym Mod1+Shift+Down move down
+bindsym Mod1+Shift+j move down
+bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+k move up
+bindsym Mod1+Shift+Right move right
+bindsym Mod1+Shift+l move right
+floating_modifier Mod1
+tiling_drag modifier titlebar
+
+# split horizontal / vertical
+bindsym Mod1+g split h
+bindsym Mod1+v split v
+
+# fullscreen
+bindsym Mod1+f fullscreen toggle
+
+# change container layout
+bindsym Mod1+s layout stacking
+bindsym Mod1+w layout tabbed
+bindsym Mod1+e layout toggle split
+
+# floating windows
+bindsym Mod1+space focus mode_toggle
+bindsym Mod1+Shift+space floating toggle
+
+# scratchpad
+bindsym Mod1+minus scratchpad show
+bindsym Mod1+Shift+minus move scratchpad
+
+# resize window
+mode "resize" {
+        bindsym Left       resize shrink width 20 px
+        bindsym h       resize shrink width 20 px
+        bindsym Down       resize grow height 20 px
+        bindsym j       resize grow height 20 px
+        bindsym Up         resize shrink height 20 px
+        bindsym k         resize shrink height 20 px
+        bindsym Right      resize grow width 20 px
+        bindsym l      resize grow width 20 px
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod1+r mode "default"
+}
+bindsym Mod1+r mode "resize"
+
+### workspaces ###
+bindsym Mod1+Next workspace prev
+bindsym Mod1+Prior workspace next
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws0 "0"
+
+bindsym Mod1+1 workspace number $ws1
+bindsym Mod1+2 workspace number $ws2
+bindsym Mod1+3 workspace number $ws3
+bindsym Mod1+4 workspace number $ws4
+bindsym Mod1+5 workspace number $ws5
+bindsym Mod1+6 workspace number $ws6
+bindsym Mod1+7 workspace number $ws7
+bindsym Mod1+8 workspace number $ws8
+bindsym Mod1+9 workspace number $ws9
+bindsym Mod1+0 workspace number $ws0
+
+bindsym Mod1+Shift+1 move container to workspace number $ws1
+bindsym Mod1+Shift+2 move container to workspace number $ws2
+bindsym Mod1+Shift+3 move container to workspace number $ws3
+bindsym Mod1+Shift+4 move container to workspace number $ws4
+bindsym Mod1+Shift+5 move container to workspace number $ws5
+bindsym Mod1+Shift+6 move container to workspace number $ws6
+bindsym Mod1+Shift+7 move container to workspace number $ws7
+bindsym Mod1+Shift+8 move container to workspace number $ws8
+bindsym Mod1+Shift+9 move container to workspace number $ws9
+bindsym Mod1+Shift+0 move container to workspace number $ws0
+
+# assign windows to workspaces
+assign [class="^firefox$"] 2
+assign [class="^discord$"] 3
+assign [class="^Guilded$"] 3
+assign [class="^steam$"] 4
+assign [title="^Steam$"] 4
+assign [class="^qBittorrent$"] 6
+
+for_window [class="^feh$"] floating enable
+
+exec --no-startup-id "i3-msg 'workspace 0; append_layout /home/zombo/.config/i3/workspace-0.json'"
+exec --no-startup-id urxvt -e htop
+exec --no-startup-id urxvt -e wiremix
+exec --no-startup-id unclutter --timeout 2
+exec --no-startup-id picom
+
+### appearance ###
+font pango:JetBrains Mono Light 9
+
+# gaps
+gaps inner 10
+gaps outer 5
+
+# colors: class          border    bg        text      nxt win   child
+client.focused           #ff7070ff #b04040b0 #ffffffff #ff7070ff #ff7070ff
+client.focused_inactive  #606060ff #404040b0 #a0a0a0ff #606060ff #505050ff
+client.unfocused         #505050ff #30303080 #909090ff #505050ff #404040ff
+client.urgent            #ff0000ff #600808e0 #ff8040ff #ff0000ff #ff0000ff
+client.placeholder       #505050ff #303030e0 #909090ff #505050ff #404040ff
+client.background        #ffffffff
+
+# border styles
+default_border pixel 2
+for_window [class="^[sS]team$"] border pixel 2
+
+### i3bar ###
+bar {
+	mode hide
+	status_command i3status -c ~/.config/i3/status.conf
+	font pango:JetBrains Mono Bold 10.5
+	separator_symbol "   </>   "
+	workspace_min_width 24
+	colors {
+		background         #202020
+		statusline         #ffffff
+		separator          #ffffff
+		focused_workspace  #ff7070 #ff7070 #ffffff
+		inactive_workspace #505050 #303030 #a0a0a0
+		urgent_workspace   #ff0000 #600808 #ff8040
+	}
+	padding 0px 12px 0px 0px
+}
+bindsym Mod1+b bar mode toggle

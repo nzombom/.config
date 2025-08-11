@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -f "$xinitdr/.Xresources" ]; then
+	"$xrdb" -merge "$xinitdr/.Xresources"
+fi
+
+xrdb -merge "$XDG_CONFIG_HOME/X11/xresources"
+
+feh --no-fehbg --bg-fill --randomize /home/zombo/wallpapers/
+i3

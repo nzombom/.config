@@ -2,9 +2,8 @@ urxvt.scrollBar: false
 urxvt.cursorBlink: true
 urxvt.pointerBlank: true
 
-urxvt.font: xft:JetBrains Mono:size=9
-urxvt.italicFont: xft:JetBrains Mono:style=Italic:size=9
-urxvt.boldFont: xft:JetBrains Mono:style=Bold Italic:size=9
+urxvt.font: xft:JetBrainsMono:size=9,\
+xft:JetBrainsMono Nerd Font:size=9
 
 urxvt.depth: 32
 

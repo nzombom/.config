@@ -1,3 +1,4 @@
+#!/bin/bash
 # ~/.bashrc
 
 # If not running interactively, don't do anything
@@ -13,7 +14,7 @@ export XDG_CONFIG_HOME="/home/zombo/.config"
 export XDG_STATE_HOME="/home/zombo/.local/state"
 export XDG_CACHE_HOME="/home/zombo/.cache"
 
-export HISTFILE="$XDG_STATE_HOME/bash/history"
+export HISTFILE="/dev/null"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
@@ -47,5 +48,29 @@ alias rm='rm -I'
 alias ls='ls --color=auto -Gh'
 alias gitl='git log --graph --oneline --decorate --all'
 
-PS1='\[\e[1;91m\]\u@\h\[\e[0;33m\]\w\[\e[m\]$ '
-PS2='\[\e[33m\]...>\[\e[m\] '
+function promptSetup {
+	function abbrev {
+		local len=${#2}
+		if [ $len -gt $1 ]; then
+			echo ...$(echo $2 | cut -c $(($len - $1 - 3))- -)
+		else
+			echo $2
+		fi
+	}
+	function ret {
+		return $1
+	}
+	local c="\[\e[0m\]"
+	local bt="\[\e[1m\]"
+	local bf="\[\e[22m\]"
+	local rt="\[\e[7m\]"
+	local rf="\[\e[27m\]"
+	local fr="\[\e[39m\]"
+	local br="\[\e[49m\]"
+	local cf="\[\e[91m\]"
+	local dir="\$(dirs +0 | perl -n $XDG_CONFIG_HOME/bash/dirs.pl \
+		| sed \"s/__BASH_LESC_/\\[/g; s/_BASH_RESC__/\\]/g\")"
+	PS1="$cf$bt█$rt[\u@\h] $bf$rf$dir$c "
+	PS2="$vb$rbf ░▒▓$c$rbf\$>$c "
+}
+promptSetup

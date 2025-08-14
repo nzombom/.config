@@ -9,14 +9,14 @@ export VISUAL=nvim
 export MANPAGER="nvim +Man! -"
 export PAGER="nvim +Man! -"
 
-export XDG_DATA_HOME="/home/zombo/.local/share"
-export XDG_CONFIG_HOME="/home/zombo/.config"
-export XDG_STATE_HOME="/home/zombo/.local/state"
-export XDG_CACHE_HOME="/home/zombo/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 export HISTFILE="/dev/null"
-export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
-export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+export XSERVERRC="$XDG_CONFIG_HOME/x11/xserverrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java \
@@ -68,9 +68,11 @@ function promptSetup {
 	local fr="\[\e[39m\]"
 	local br="\[\e[49m\]"
 	local cf="\[\e[91m\]"
+	local cb="\[\e[101m\]"
+	local df="\[\e[90m\]"
 	local dir="\$(dirs +0 | perl -n $XDG_CONFIG_HOME/bash/dirs.pl \
-		| sed \"s/__BASH_LESC_/\\[/g; s/_BASH_RESC__/\\]/g\")"
-	PS1="$cf$bt█$rt[\u@\h] $bf$rf$dir$c "
-	PS2="$vb$rbf ░▒▓$c$rbf\$>$c "
+		| sed \"s/__BASH_LESC__/\\[/g; s/__BASH_RESC__/\\]/g\")"
+	PS1="$cf$bt$rt [\u@\h] $bf$rf$cb$dir$c "
+	PS2="$cb$df  $br█$c "
 }
 promptSetup

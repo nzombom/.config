@@ -1,9 +1,20 @@
 chomp;
-my $textfg = "__BASH_LESC_\e[91m_BASH_RESC__";
-my $resetbg = "__BASH_LESC_\e[49m_BASH_RESC__";
-my @colors = ("__BASH_LESC_\e[90m_BASH_RESC__", "__BASH_LESC_\e[100m_BASH_RESC__", "__BASH_LESC_\e[30m_BASH_RESC__", "__BASH_LESC_\e[40m_BASH_RESC__");
-my @strs = /^\/|[^\/]+/g;
+my $lesc = "__BASH_LESC__";
+my $resc = "__BASH_RESC__";
+my $textfg = "${lesc}\e[91m${resc}";
+my $resetfg = "${lesc}\e[39m${resc}";
+my $resetbg = "${lesc}\e[49m${resc}";
+my @colors = (
+	"${lesc}\e[90m${resc}",
+	"${lesc}\e[100m${resc}",
+	"${lesc}\e[30m${resc}",
+	"${lesc}\e[40m${resc}",
+);
+my @strs = /^(?=\/)|[^\/]+/g;
+if (@strs > 6) {
+	@strs = ("...", @strs[@array - 5..$#array]);
+}
 print map {
-	"$colors[($_ * 2 + 1) % @colors]$textfg $strs[$_] $colors[($_ * 2) % @colors]"
+	"$colors[($_ * 2) % @colors]$textfg$colors[($_ * 2 + 1) % @colors] $strs[$_] "
 } (0..$#strs);
-print "$resetbg";
+print "$colors[($#strs * 2) % @colors]$resetbg$resetfg \$";

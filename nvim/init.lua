@@ -16,6 +16,9 @@ vim.api.nvim_create_autocmd('FileType', {
 	callback = function() vim.treesitter.start() end,
 })
 
+vim.o.virtualedit = "onemore"
+vim.o.sel = "exclusive"
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver20,r-cr:hor20,o:hor50,a:blinkwait0-blinkoff500-blinkon500"
 vim.o.winborder = 'rounded'
 vim.o.wrap = false
 vim.o.hlsearch = false

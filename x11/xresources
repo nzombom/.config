@@ -1,0 +1,36 @@
+urxvt.font: xft:JetBrainsMono:size=9,\
+xft:JetBrainsMono Nerd Font Mono:size=9
+
+urxvt.depth: 32
+
+urxvt.scrollBar: false
+urxvt.pointerBlank: true
+urxvt.cursorBlink: true
+urxvt.background: [75]#201e24
+urxvt.foreground: #ffffff
+urxvt.cursorColor: #605a66
+urxvt.cursorColor2: #ffffff
+
+urxvt.color0: #302c38
+urxvt.color8: #3c3a40
+
+urxvt.color1: #d05058
+urxvt.color9: #ff707c
+
+urxvt.color2: #40b058
+urxvt.color10: #60ff78
+
+urxvt.color3: #b09040
+urxvt.color11: #ffd080
+
+urxvt.color4: #5060c0
+urxvt.color12: #7080ff
+
+urxvt.color5: #b840bc
+urxvt.color13: #f460ff
+
+urxvt.color6: #30a09c
+urxvt.color14: #40d4cc
+
+urxvt.color7: #ffffff
+urxvt.color15: #ffffff

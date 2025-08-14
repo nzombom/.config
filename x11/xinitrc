@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -f "$xinitdr/.Xresources" ]; then
+	"$xrdb" -merge "$xinitdr/.Xresources"
+fi
+
+xrdb -merge "$XDG_CONFIG_HOME/x11/xresources"
+
+i3

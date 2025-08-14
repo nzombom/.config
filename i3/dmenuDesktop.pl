@@ -2,7 +2,7 @@ use v5.42.0;
 
 my $folders = join(" ", (
 	"/usr/share/applications",
-	"/home/zombo/.local/share/applications"
+	"~/.local/share/applications"
 ));
 
 my $filestr = qx/find $folders -type f -name "*.desktop"/;

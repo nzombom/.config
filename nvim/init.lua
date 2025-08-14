@@ -1,4 +1,4 @@
-vim.o.shadafile = '/home/zombo/.local/share/nvim/info.shada'
+vim.o.shadafile = "~/.local/share/nvim/info.shada"
 
 vim.cmd.syntax('on')
 vim.cmd.filetype('on')

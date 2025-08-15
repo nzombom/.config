@@ -1,5 +1,5 @@
-urxvt.font: xft:JetBrainsMono:size=9,\
-xft:JetBrainsMono Nerd Font Mono:size=9
+urxvt.font: xft:Iosevka:size=10.5,\
+xft:Iosevka Nerd Font Mono:size=10.5
 
 urxvt.depth: 32
 

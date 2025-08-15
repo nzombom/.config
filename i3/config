@@ -11,7 +11,7 @@ exec --no-startup-id picom
 ### basic control ###
 bindsym Mod4+Shift+c reload
 bindsym Mod4+Shift+r restart
-bindsym Mod4+Shift+e exec --no-startup-id "i3-nagbar -f 'xft:JetBrains Mono ExtraBold 10.5' -t warning -m 'exit i3?' -B 'Y' 'i3-msg exit'"
+bindsym Mod4+Shift+e exec --no-startup-id "i3-nagbar -f 'xft:Iosevka Bold 12' -t warning -m 'exit i3?' -B 'Y' 'i3-msg exit'"
 
 # screenshot
 bindsym Mod4+semicolon exec --no-startup-id "ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 -y $HOME/stuff/images/screen.png; xclip -selection clipboard -t image/png -i $HOME/screen.png"
@@ -46,9 +46,9 @@ bindsym Mod4+Return exec --no-startup-id urxvt
 # kill focused window
 bindsym Mod4+Shift+q kill
 
-# dmenu
-bindsym Mod4+d exec --no-startup-id bash $HOME/.config/i3/dmenuCmd.sh
-bindsym Mod4+Shift+d exec --no-startup-id perl $HOME/.config/i3/dmenuDesktop.pl
+# rofi
+bindsym Mod4+d exec --no-startup-id $(rofi -dmenu)
+bindsym Mod4+Shift+d exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym Mod4+Left focus left
@@ -158,7 +158,7 @@ assign [class="^qBittorrent$"] 6
 for_window [class="^feh$"] floating enable
 
 ### appearance ###
-font pango:JetBrains Mono Light 9
+font pango:Iosevka Light 10.5
 
 # gaps
 gaps inner 10
@@ -176,8 +176,3 @@ client.background        #ffffffff
 # border styles
 default_border pixel 2
 for_window [class="^[sS]team$"] border pixel 2
-
-# don't show i3bar
-bar {
-	mode invisible
-}

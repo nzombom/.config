@@ -11,8 +11,8 @@ my @colors = (
 	"${lesc}\e[40m${resc}",
 );
 my @strs = /^(?=\/)|[^\/]+/g;
-if (@strs > 6) {
-	@strs = ("...", @strs[@array - 5..$#array]);
+if (@strs > 4) {
+	@strs = ("...", @strs[@array - 3..$#array]);
 }
 print map {
 	"$colors[($_ * 2) % @colors]$textfg$colors[($_ * 2 + 1) % @colors] $strs[$_] "

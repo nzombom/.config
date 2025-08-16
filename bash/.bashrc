@@ -40,13 +40,35 @@ function grepf {
 }
 function cppl {
 	cpplint --root=$1/headers \
-		--filter=-whitespace/tab,-whitespace/indent,-legal,-build/include_subdir,-runtime/int \
+		--filter=-whitespace/tab,-whitespace/indent,-legal,-build/include_subdir,-build/c++17 \
 		$(find $1 -type f) 2>&1 >/dev/null | nvim -
 }
 
 alias rm='rm -I'
-alias ls='ls --color=auto -Gh'
+alias cp='cp -i'
+alias ls='ls --color=auto -hFNT 4 --group-directories-first'
 alias gitl='git log --graph --oneline --decorate --all'
+
+if [ $TERM = "linux" ]; then
+	echo -en "\e]P0302c38"
+	echo -en "\e]P83c3a40"
+	echo -en "\e]P1d05058"
+	echo -en "\e]P9ff707c"
+	echo -en "\e]P240b058"
+	echo -en "\e]Pa60ff78"
+	echo -en "\e]P3b09040"
+	echo -en "\e]Pbffd080"
+	echo -en "\e]P45060c0"
+	echo -en "\e]Pc7080ff"
+	echo -en "\e]P5b840bc"
+	echo -en "\e]Pdf460ff"
+	echo -en "\e]P630a09c"
+	echo -en "\e]Pe40d4cc"
+	echo -en "\e]P7ffffff"
+	echo -en "\e]Pfffffff"
+	setfont $HOME/.config/bash/ttyFonts/iosevka/iosevkanf.psf
+	clear
+fi
 
 function promptSetup {
 	function abbrev {
@@ -70,9 +92,11 @@ function promptSetup {
 	local cf="\[\e[91m\]"
 	local cb="\[\e[101m\]"
 	local df="\[\e[90m\]"
+	local db="\[\e[100m\]"
 	local dir="\$(dirs +0 | perl -n $XDG_CONFIG_HOME/bash/dirs.pl \
 		| sed \"s/__BASH_LESC__/\\[/g; s/__BASH_RESC__/\\]/g\")"
-	PS1="$cf$bt$rt [\u@\h] $bf$rf$cb$dir$c "
-	PS2="$cb$df  $br█$c "
+	local sp="$cb$df  $br$cf$db \$ $df$br$c "
+	PS1="$cf$bt$rt \u@\h $bf$rf$cb$dir$c\n$sp"
+	PS2="$cb$df $br$df$br█$c "
 }
 promptSetup

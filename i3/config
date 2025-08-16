@@ -11,7 +11,7 @@ exec --no-startup-id picom
 ### basic control ###
 bindsym Mod4+Shift+c reload
 bindsym Mod4+Shift+r restart
-bindsym Mod4+Shift+e exec --no-startup-id "i3-nagbar -f 'xft:Iosevka Bold 12' -t warning -m 'exit i3?' -B 'Y' 'i3-msg exit'"
+bindsym Mod4+Shift+e exec --no-startup-id "i3-nagbar -f 'xft:Iosevka Bold 12' -t warning -m 'exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # screenshot
 bindsym Mod4+semicolon exec --no-startup-id "ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 -y $HOME/stuff/images/screen.png; xclip -selection clipboard -t image/png -i $HOME/screen.png"

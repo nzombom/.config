@@ -21,7 +21,7 @@ bindsym Mod4+Ctrl+Shift+semicolon exec --no-startup-id "rm $HOME/images/screen.m
 for_window [title="^ffmpeg$"] floating enable
 
 # lock
-bindsym Mod4+n exec --no-startup-id i3lock -f -i $HOME/wallpapers/lock/sky.png
+bindsym Mod4+n exec --no-startup-id i3lock -f -i $HOME/wallpapers/lock/lock.png
 
 # volume keybinds
 bindsym Mod4+F1 exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle

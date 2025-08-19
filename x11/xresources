@@ -1,4 +1,6 @@
-urxvt.font: xft:Iosevka:size=10.5,\
+urxvt.font: xft:Iosevka Custom:size=10.5,\
+xft:Iosevka Nerd Font Mono:size=10.5
+urxvt.boldFont: xft:Iosevka Custom Heavy:size=10.5,\
 xft:Iosevka Nerd Font Mono:size=10.5
 
 urxvt.depth: 32

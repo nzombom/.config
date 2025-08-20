@@ -83,20 +83,22 @@ function promptSetup {
 		return $1
 	}
 	local c="\[\e[0m\]"
-	local bt="\[\e[1m\]"
-	local bf="\[\e[22m\]"
-	local rt="\[\e[7m\]"
-	local rf="\[\e[27m\]"
-	local fr="\[\e[39m\]"
-	local br="\[\e[49m\]"
-	local cf="\[\e[91m\]"
-	local cb="\[\e[101m\]"
-	local df="\[\e[90m\]"
-	local db="\[\e[100m\]"
+	local bold="\[\e[1m\]"
+	local unbold="\[\e[22m\]"
+	local clearfg="\[\e[39m\]"
+	local clearbg="\[\e[49m\]"
+	local fg0="\[\e[91m\]"		# red
+	local bg0="\[\e[101m\]"		# red
+	local fg1="\[\e[90m\]"		# bright black
+	local bg1="\[\e[100m\]"		# bright black
+	local fg2="\[\e[30m\]"		# dark black
 	local dir="\$(dirs +0 | perl -n $XDG_CONFIG_HOME/bash/dirs.pl \
 		| sed \"s/__BASH_LESC__/\\[/g; s/__BASH_RESC__/\\]/g\")"
-	local sp="$cb$df  $br$cf$db \$ $df$br$c "
-	PS1="$cf$bt$rt \u@\h $bf$rf$cb$dir$c\n$sp"
-	PS2="$cb$df $br$df$br█$c "
+	local sp="$bg0$fg1 $bg1$fg0 \$ $fg1$clearbg$c "
+	PS1="$bg0$fg2$bold \u@\h $unbold$dir$c\n$sp"
+	PS2="$bg1$fg0█ $clearbg$fg1$c "
 }
 promptSetup
+
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+	. /usr/share/bash-completion/bash_completion

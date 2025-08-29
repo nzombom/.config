@@ -3,10 +3,10 @@ exec --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/wallpapers/
 exec --no-startup-id dunst
 exec --no-startup-id polybar
 exec --no-startup-id "i3-msg \"workspace 0; append_layout $HOME/.config/i3/workspace-0.json\""
+exec --no-startup-id urxvt -e htop
+exec --no-startup-id urxvt -e wiremix
 exec --no-startup-id urxvtd
-exec --no-startup-id urxvtc -e htop
-exec --no-startup-id urxvtc -e wiremix
-exec --no-startup-id unclutter --timeout 2
+exec --no-startup-id unclutter --timeout 5
 exec --no-startup-id picom
 
 ### basic control ###
@@ -15,8 +15,8 @@ bindsym Mod4+Shift+r restart
 bindsym Mod4+Shift+e exec --no-startup-id "i3-nagbar -f 'xft:Iosevka Bold 12' -t warning -m 'exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # screenshot
-bindsym Mod4+semicolon exec --no-startup-id "ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 -y $HOME/stuff/images/screen.png; xclip -selection clipboard -t image/png -i $HOME/screen.png"
-bindsym Mod4+Shift+semicolon exec --no-startup-id "ffmpeg -f x11grab -select_region 1 -i $DISPLAY -vframes 1 -y $HOME/stuff/images/screen.png; xclip -selection clipboard -t image/png -i $HOME/screen.png"
+bindsym Mod4+semicolon exec --no-startup-id "ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 -y $HOME/stuff/images/screen.png; xclip -selection clipboard -t image/png -i $HOME/stuff/images/screen.png"
+bindsym Mod4+Shift+semicolon exec --no-startup-id "ffmpeg -f x11grab -select_region 1 -i $DISPLAY -vframes 1 -y $HOME/stuff/images/screen.png; xclip -selection clipboard -t image/png -i $HOME/stuff/images/screen.png"
 bindsym Mod4+Ctrl+semicolon exec --no-startup-id "rm $HOME/stuff/images/screen.mp4; urxvtc -e ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i $DISPLAY -f alsa -i default -c:v libx264 -c:a aac $HOME/stuff/images/screen.mp4"
 bindsym Mod4+Ctrl+Shift+semicolon exec --no-startup-id "rm $HOME/images/screen.mp4; urxvtc -e ffmpeg -f x11grab -select_region 1 -framerate 30 -i $DISPLAY -f alsa -i default -c:v libx264 -c:a aac $HOME/stuff/images/screen.mp4"
 for_window [title="^ffmpeg$"] floating enable

@@ -6,6 +6,7 @@ exec --no-startup-id "i3-msg \"workspace 0; append_layout $HOME/.config/i3/works
 exec --no-startup-id urxvt -e htop
 exec --no-startup-id urxvt -e wiremix
 exec --no-startup-id urxvtd
+exec --no-startup-id playerctld
 exec --no-startup-id unclutter --timeout 5
 exec --no-startup-id picom
 

@@ -13,8 +13,8 @@ local nvim_treesitter = require("nvim-treesitter")
 nvim_treesitter.setup()
 nvim_treesitter.install({ 'c', 'cpp', 'zig', 'javascript' })
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { 'c', 'cpp', 'zig', 'javascript' },
-	callback = function() vim.treesitter.start() end,
+	pattern = '*',
+	callback = function() pcall(vim.treesitter.start) end,
 })
 
 vim.o.virtualedit = "onemore"

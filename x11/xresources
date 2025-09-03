@@ -13,7 +13,7 @@ urxvt.foreground: #ffffff
 urxvt.cursorColor: #605a66
 urxvt.cursorColor2: #ffffff
 
-urxvt.color0: #302c38
+urxvt.color0: #302e32
 urxvt.color8: #3c3a40
 
 urxvt.color1: #d05058

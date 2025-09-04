@@ -30,7 +30,7 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = false
 vim.o.tabstop = 4
 vim.o.cursorline = true
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = "81"
 vim.o.so = 16
 vim.cmd.highlight({ 'cursorline', 'cterm=NONE', 'ctermbg=0' })
 vim.cmd.highlight({ 'cursorlinenr', 'cterm=bold', 'ctermbg=0' })

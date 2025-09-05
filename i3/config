@@ -9,6 +9,7 @@ exec --no-startup-id urxvtd
 exec --no-startup-id playerctld
 exec --no-startup-id unclutter --timeout 5
 exec --no-startup-id picom
+exec --no-startup-id "xborders --border-radius 16 --border-rgba \"#ff707c\" --border-width 2"
 
 ### basic control ###
 bindsym Mod4+Shift+c reload
@@ -177,5 +178,6 @@ client.placeholder       #505050ff #303030e0 #909090ff #505050ff #404040ff
 client.background        #ffffffff
 
 # border styles
-default_border pixel 2
+#default_border pixel 2
+default_border none
 for_window [class="^[sS]team$"] border pixel 2

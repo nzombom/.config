@@ -152,12 +152,11 @@ bindsym Mod4+Shift+9 move container to workspace number $ws9
 bindsym Mod4+Shift+0 move container to workspace number $ws0
 
 # assign windows to workspaces
-assign [class="^firefox$"] 2
-assign [class="^discord"] 3
-assign [class="^steam$"] 4
-assign [title="^Steam$"] 4
-assign [class="^thunderbird$"] 6
-assign [class="^qBittorrent$"] 7
+assign [class="^[fF]irefox$"] 2
+assign [class="^[dD]iscord$"] 3
+assign [class="^[sS]team$"] 4
+assign [title="^[sS]team$"] 4
+assign [class="^[qQ]Bittorrent$"] 7
 
 for_window [class="^feh$"] floating enable
 

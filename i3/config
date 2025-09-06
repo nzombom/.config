@@ -178,6 +178,4 @@ client.placeholder       #505050ff #303030e0 #909090ff #505050ff #404040ff
 client.background        #ffffffff
 
 # border styles
-#default_border pixel 2
 default_border none
-for_window [class="^[sS]team$"] border pixel 2

@@ -14,6 +14,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export RXVT_SOCKET="$HOME/.local/state/urxvtd-zpc"
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/x11/xserverrc"

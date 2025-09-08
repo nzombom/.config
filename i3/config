@@ -178,3 +178,4 @@ client.background        #ffffffff
 
 # border styles
 default_border none
+for_window [all] border none

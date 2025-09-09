@@ -48,7 +48,6 @@ vim.cmd.highlight({ 'identifier', 'cterm=NONE', 'ctermfg=7' })
 vim.cmd.highlight({ 'constant', 'cterm=italic', 'ctermfg=9' })
 vim.cmd.highlight({ 'statement', 'ctermfg=11' })
 vim.cmd.highlight({ 'type', 'ctermfg=12' })
-vim.cmd.highlight({ '@keyword.modifier', 'cterm=bold', 'ctermfg=12' })
 vim.cmd.highlight({ 'comment', 'ctermfg=2' })
 vim.cmd.highlight({ 'preproc', 'ctermfg=2' })
 vim.cmd.highlight({ 'function', 'ctermfg=14' })
@@ -87,8 +86,10 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', ' ', '');
 vim.keymap.set('n', '<leader>c', '^i// <esc>')
 vim.keymap.set('n', '<leader>C', '^i# <esc>')
+vim.keymap.set('n', '<leader>d', ':s/\\/\\/ \\?//<enter>')
 vim.keymap.set('v', '<leader>c', ':g/./normal ^i// <enter>')
 vim.keymap.set('v', '<leader>C', ':g/./normal ^i# <enter>')
+vim.keymap.set('v', '<leader>d', ':s/\\/\\/ \\?//<enter>\'<=\'>')
 vim.keymap.set('n', '<leader>;', '<c-w>w')
 
 local cStyleGroup = vim.api.nvim_create_augroup('cstyle', { clear = true });

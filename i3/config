@@ -169,11 +169,11 @@ gaps outer 10
 gaps top 0
 
 # colors: class          border    bg        text      nxt win   child
-client.focused           #ff707cff #b04040b0 #ffffffff #ff707cff #ff707cff
-client.focused_inactive  #606060ff #404040b0 #a0a0a0ff #606060ff #505050ff
-client.unfocused         #505050ff #30303080 #909090ff #505050ff #404040ff
-client.urgent            #ff0000ff #600808e0 #ff8040ff #ff0000ff #ff0000ff
-client.placeholder       #505050ff #303030e0 #909090ff #505050ff #404040ff
+client.focused           #e06060b0 #e06060b0 #ffffffff #ff707cff #ff707cff
+client.focused_inactive  #505050b0 #505050b0 #a0a0a0ff #606060ff #505050ff
+client.unfocused         #30303080 #30303080 #909090ff #505050ff #404040ff
+client.urgent            #ff0000e0 #ff0000e0 #ff8040ff #ff0000ff #ff0000ff
+client.placeholder       #505050e0 #505050e0 #909090ff #505050ff #404040ff
 client.background        #ffffffff
 
 # border styles

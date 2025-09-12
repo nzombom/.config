@@ -5,7 +5,5 @@
 !polybar/
 !bash/
 !nvim/
-!htop/
-!gdb/
 !fontconfig/
 !.gitignore

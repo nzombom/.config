@@ -83,6 +83,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
 })
 
 vim.g.mapleader = ' '
+vim.keymap.set({ 'i', 'n', 'v' }, '<F1>', '');
 vim.keymap.set('n', ' ', '');
 vim.keymap.set('n', '<leader>c', '^i// <esc>')
 vim.keymap.set('n', '<leader>C', '^i# <esc>')
